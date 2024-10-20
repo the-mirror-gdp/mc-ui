@@ -1,23 +1,8 @@
 {
-  "name": "@playcanvas/pcui",
+  "name": "@the-mirror-gdp/mc-ui",
   "version": "4.5.0",
-  "author": "PlayCanvas <support@playcanvas.com>",
-  "homepage": "https://playcanvas.github.io/pcui",
-  "description": "User interface component library for the web",
-  "keywords": [
-    "components",
-    "css",
-    "dom",
-    "html",
-    "javascript",
-    "pcui",
-    "playcanvas",
-    "react",
-    "sass",
-    "typescript",
-    "ui"
-  ],
-  "license": "MIT",
+  "author": "The Mirror",
+  "license": "Custom",
   "main": "dist/module/src/index.mjs",
   "exports": {
     ".": "./dist/module/src/index.mjs",
@@ -29,11 +14,11 @@
   },
   "types": "types/index.d.ts",
   "bugs": {
-    "url": "https://github.com/playcanvas/pcui/issues"
+    "url": "https://github.com/the-mirror-gdp/the-mirror/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/playcanvas/pcui.git"
+    "url": "git+https://github.com/the-mirror-gdp/mc-ui"
   },
   "scripts": {
     "build": "rollup -c && npm run bundle:styles",
@@ -80,31 +65,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "eslintConfig": {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends": [
-      "@playcanvas/eslint-config",
-      "plugin:@typescript-eslint/recommended"
-    ],
-    "rules": {
-      "@typescript-eslint/ban-ts-comment": "off",
-      "@typescript-eslint/no-empty-function": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-      "jsdoc/require-returns": "off",
-      "jsdoc/require-returns-type": "off",
-      "jsdoc/require-param-type": "off"
-    },
-    "settings": {
-      "import/resolver": {
-        "typescript": {}
-      }
-    }
   },
   "dependencies": {
     "@playcanvas/observer": "^1.4.0"

@@ -1,20 +1,22 @@
-import { Element } from '../Element/component';
-import { VectorInput as VectorInputClass, VectorInputArgs } from './index';
+import { Element } from '../Element/component'
+import { VectorInput as VectorInputClass, VectorInputArgs } from './index'
 
 /**
  * A vector input.
  */
 class VectorInput extends Element<VectorInputArgs, any> {
-    constructor(props: VectorInputArgs) {
-        super(props);
-        this.elementClass = VectorInputClass;
-    }
+  onValidate: (value: number[]) => boolean
 
-    render() {
-        return super.render();
-    }
+  constructor(props: VectorInputArgs) {
+    super(props)
+    this.elementClass = VectorInputClass
+  }
+
+  render() {
+    return super.render()
+  }
 }
 
-VectorInput.ctor = VectorInputClass;
+VectorInput.ctor = VectorInputClass
 
-export { VectorInput };
+export { VectorInput }

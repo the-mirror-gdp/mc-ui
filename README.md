@@ -1,4 +1,6 @@
-# PCUI - User Interface Component Library for the Web
+**Mirror-Core UI: Fork of PCUI to add additional features where missing (e.g. validation) and style consistency.**
+
+# Modified PCUI - User Interface Component Library for the Web
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/playcanvas/pcui/blob/main/LICENSE)
 [![NPM Version](https://img.shields.io/npm/v/@playcanvas/pcui.svg?style=flat?style=flat)](https://www.npmjs.com/package/@playcanvas/pcui)
@@ -14,32 +16,29 @@ A full guide to using the PCUI library can be found [here](https://playcanvas.gi
 
 To install the PCUI NPM module, run the following command:
 
-    npm install @playcanvas/pcui --save-dev
+    yarn add @the-mirror-gdp/mc-ui
 
 You can then import each individual element from PCUI. In the example below, you can see how the PCUI `Label` component is imported from the PCUI library. The styles for PCUI are then imported into the example. Styles only need to be imported once per project.
 
 ```javascript
-import { Label } from '@playcanvas/pcui';
-import '@playcanvas/pcui/styles';
+import { Label } from '@playcanvas/pcui'
+import '@playcanvas/pcui/styles'
 
 const label = new Label({
-    text: 'Hello World'
-});
-document.body.appendChild(label.dom);
+  text: 'Hello World'
+})
+document.body.appendChild(label.dom)
 ```
 
 If you'd like to include PCUI in your React project, you can import the individual components as follows:
 
 ```javascript
-import * as React from 'react';
-import ReactDOM from 'react-dom';
-import { TextInput } from '@playcanvas/pcui/react';
-import '@playcanvas/pcui/styles';
+import * as React from 'react'
+import ReactDOM from 'react-dom'
+import { TextInput } from '@playcanvas/pcui/react'
+import '@playcanvas/pcui/styles'
 
-ReactDOM.render(
-    <TextInput text='Hello World'/>,
-    document.body
-);
+ReactDOM.render(<TextInput text="Hello World" />, document.body)
 ```
 
 ## Building a UMD bundle
@@ -51,8 +50,11 @@ If you need a UMD version of the PCUI library (say, to use it in a PlayCanvas Ed
 PCUI uses four CSS classes to add styled fonts to the various components. These are `.font-regular`, `.font-bold`, `.font-thin` and `.font-light`. You can use your own font with PCUI by adding `font-family` CSS rules to these classes on your webpage. For example:
 
 ```css
-.font-regular, .font-bold, .font-thin, .font-light {
-    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+.font-regular,
+.font-bold,
+.font-thin,
+.font-light {
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 ```
 
@@ -61,30 +63,35 @@ PCUI uses four CSS classes to add styled fonts to the various components. These 
 The PCUI library offers a data binding layer that can be used to synchronize data across multiple components. It offers two way binding to a given observer object, so updates made in a component are reflected in the observer's data and distributed out to all other subscribed components. A simple use case is shown below:
 
 ```javascript
-import { Observer } from '@playcanvas/observer';
-import { Label, TextInput, BindingObserversToElement, BindingElementToObservers } from '@playcanvas/pcui';
-import '@playcanvas/pcui/styles';
+import { Observer } from '@playcanvas/observer'
+import {
+  Label,
+  TextInput,
+  BindingObserversToElement,
+  BindingElementToObservers
+} from '@playcanvas/pcui'
+import '@playcanvas/pcui/styles'
 
 // create a new observer for a simple object which contains a text string
 const observer = new Observer({
-    text: 'Hello World'
-});
+  text: 'Hello World'
+})
 
 // create a label which will listen to updates from the observer
 const label = new Label({
-    binding: new BindingObserversToElement()
-});
+  binding: new BindingObserversToElement()
+})
 
 // link the observer to the label, telling it to use the text variable as its value
-label.link(observer, 'text');
+label.link(observer, 'text')
 
 // create a text input which will send updates to the observer
 const textInput = new TextInput({
-    binding: new BindingElementToObservers()
-});
+  binding: new BindingElementToObservers()
+})
 
 // link the observer to the label, telling it to set the text variable on change
-textInput.link(observer, 'text');
+textInput.link(observer, 'text')
 ```
 
 In the above example, the created label will start with `Hello World` as its text value. When a user enters a value into the text input, the label will be updated with the new value.

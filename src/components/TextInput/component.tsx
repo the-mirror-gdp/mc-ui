@@ -1,34 +1,34 @@
-import { Element } from '../Element/component';
-import { TextInput as TextInputClass, TextInputArgs } from './index';
+import { Element } from '../Element/component'
+import { TextInput as TextInputClass, TextInputArgs } from './index'
 
 /**
  * The TextInput is an input element of type text.
  */
 class TextInput extends Element<TextInputArgs, any> {
-    onValidate: (value: string) => boolean;
+  onValidate: (value: string) => boolean
 
-    constructor(props: TextInputArgs = {}) {
-        super(props);
-        this.elementClass = TextInputClass;
+  constructor(props: TextInputArgs = {}) {
+    super(props)
+    this.elementClass = TextInputClass
 
-        if (props.onValidate) {
-            this.onValidate = props.onValidate;
-        }
-
-        this.onAttach = this.onAttachFn.bind(this);
+    if (props.onValidate) {
+      this.onValidate = props.onValidate
     }
 
-    onAttachFn() {
-        if (this.onValidate) {
-            this.element.onValidate = this.onValidate;
-        }
-    }
+    this.onAttach = this.onAttachFn.bind(this)
+  }
 
-    render() {
-        return super.render();
+  onAttachFn() {
+    if (this.onValidate) {
+      this.element.onValidate = this.onValidate
     }
+  }
+
+  render() {
+    return super.render()
+  }
 }
 
-TextInput.ctor = TextInputClass;
+TextInput.ctor = TextInputClass
 
-export { TextInput };
+export { TextInput }
